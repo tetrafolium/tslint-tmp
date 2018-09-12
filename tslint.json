@@ -2,7 +2,10 @@
   "lintOptions": {
     "typeCheck": true
   },
-  "extends": ["tslint:all", "tslint-config-prettier"],
+  // Inspecode task failed:
+  //   + https://inspecode.strophoid.io/jobs/github.com/tetrafolium/tslint/1/tasks/tslint
+  // "extends": ["tslint:all", "tslint-config-prettier"],
+  "extends": ["tslint:all"],
   "rules": {
     // Don't want these
     "cyclomatic-complexity": false,
