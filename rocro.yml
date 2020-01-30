@@ -1,23 +1,25 @@
 inspecode:
 
   grep:         ## for any-languages
-    thresholds: { num-issues: 999 }
+    thresholds: { num-issues: 11 }
 
   jscpd:        ## for TypeScript
-    thresholds: { num-issues: 999 }
+    thresholds: { num-issues: 75 }
+      # found 75 issues by SaaS edition
+      # found 76 issues by Enterprise edition
 
   misspell:     ## for any-languages
     auto-fix: true
-    thresholds: { num-issues: 999 }
+    thresholds: { num-issues: 11 }
 
   prettier:     ## for TypeScript
     #config-file: .prettierrc.json      # (auto-detect)
     # - file ".prettierignore" is referred from "prettier" key in "package.json"
     # - file ".package.json" has "prettier" key
     auto-fix: true
-    thresholds: { num-issues: 999 }
+    thresholds: { num-issues: 284 }
 
   tslint:       ## for TypeScript
     #config-file: tslint.json           # (auto-detect)
     auto-fix: true
-    thresholds: { num-issues: 999 }
+    thresholds: { num-issues: 146 }
