@@ -6,7 +6,7 @@ permalink: /usage/cli/
 
 ### Installation
 
-__Local__ (in your project's working directory):
+**Local** (in your project's working directory):
 
 ```sh
 npm install tslint typescript --save-dev
@@ -14,7 +14,7 @@ npm install tslint typescript --save-dev
 yarn add tslint typescript --dev
 ```
 
-__Global__:
+**Global**:
 
 ```sh
 npm install tslint typescript -g
@@ -150,8 +150,8 @@ tslint accepts the following command-line options:
 
 The CLI process may exit with the following codes:
 
-- `0`: Linting succeeded without errors (warnings may have occurred)
-- `1`: An invalid command line argument or combination thereof was used
-- `2`: Linting failed with one or more rule violations with severity `error`
+-   `0`: Linting succeeded without errors (warnings may have occurred)
+-   `1`: An invalid command line argument or combination thereof was used
+-   `2`: Linting failed with one or more rule violations with severity `error`
 
 [0]: {{site.baseurl | append: "/rules/"}}

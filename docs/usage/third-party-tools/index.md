@@ -8,19 +8,18 @@ A variety of tools and libraries are available to help you integrate TSLint auto
 
 _Note: Most of these tools are not maintained by TSLint._
 
-* [grunt-tslint][0] ([Grunt][1])
-* [gulp-tslint][2] ([Gulp][3])
-* [eclipse-tslint][4] ([Eclipse][5])
-* [linter-tslint][6] ([Atom][7])
-* [vscode-tslint][8] ([Visual Studio Code][9])
-* [syntastic][10] ([VIM][11])
-* [Web Analyzer][12] ([Visual Studio][13])
-* [Webstorm][14]
-* [mocha-tslint][15] ([Mocha][16])
-* [tslint.tmbundle][17] ([TextMate][18])
-* [generator-tslint][19]
-* [Flycheck][20] ([Emacs][21])
-
+-   [grunt-tslint][0] ([Grunt][1])
+-   [gulp-tslint][2] ([Gulp][3])
+-   [eclipse-tslint][4] ([Eclipse][5])
+-   [linter-tslint][6] ([Atom][7])
+-   [vscode-tslint][8] ([Visual Studio Code][9])
+-   [syntastic][10] ([VIM][11])
+-   [Web Analyzer][12] ([Visual Studio][13])
+-   [Webstorm][14]
+-   [mocha-tslint][15] ([Mocha][16])
+-   [tslint.tmbundle][17] ([TextMate][18])
+-   [generator-tslint][19]
+-   [Flycheck][20] ([Emacs][21])
 
 [0]: https://github.com/palantir/grunt-tslint
 [1]: http://gruntjs.com/

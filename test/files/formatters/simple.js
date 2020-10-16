@@ -1,12 +1,10 @@
-function SimpleFormatter () {
-
-}
+function SimpleFormatter() {}
 SimpleFormatter.prototype = Object.create({
     name: "simple",
-    getName: function () {
+    getName: function() {
         return this.name;
     },
-    format: function (failures) {
+    format: function(failures) {
         var output = "";
         for (var i = 0; i < failures.length; ++i) {
             var failure = failures[i];
@@ -19,9 +17,9 @@ SimpleFormatter.prototype = Object.create({
             output += "[" + (line + 1) + ", " + (character + 1) + "]" + fileName + "\n";
         }
         return output;
-    },
+    }
 });
 
 module.exports = {
-    Formatter: SimpleFormatter,
+    Formatter: SimpleFormatter
 };

@@ -68,16 +68,16 @@ export class Rule extends Lint.Rules.AbstractRule {
                     "check-typecast",
                     "check-type-operator",
                     "check-preblock",
-                    "check-postbrace",
-                ],
+                    "check-postbrace"
+                ]
             },
             minLength: 0,
-            maxLength: 11,
+            maxLength: 11
         },
         optionExamples: [[true, "check-branch", "check-operator", "check-typecast"]],
         type: "style",
         typescriptOnly: false,
-        hasFix: true,
+        hasFix: true
     };
 
     public static FAILURE_STRING_MISSING = "missing whitespace";
@@ -115,7 +115,7 @@ function parseOptions(ruleArguments: string[]): Options {
         typecast: has(OPTION_TYPECAST),
         typeOperator: has(OPTION_TYPE_OPERATOR),
         preblock: has(OPTION_PREBLOCK),
-        postbrace: has(OPTION_POSTBRACE),
+        postbrace: has(OPTION_POSTBRACE)
     };
 
     function has(option: string): boolean {
@@ -325,10 +325,10 @@ function walk(ctx: Lint.WalkContext<Options>) {
                 const nextPos = range.pos + 1;
                 if (
                     options.postbrace &&
-                    (sourceFile.text[nextPos] !== " " &&
+                    sourceFile.text[nextPos] !== " " &&
                         sourceFile.text[nextPos] !== "\r" &&
                         sourceFile.text[nextPos] !== "\t" &&
-                        sourceFile.text[nextPos] !== "\n")
+                        sourceFile.text[nextPos] !== "\n"
                 ) {
                     addMissingWhitespaceErrorAt(nextPos);
                 }
@@ -357,7 +357,7 @@ function walk(ctx: Lint.WalkContext<Options>) {
         const equalsGreaterThanToken = utils.getChildOfKind(
             node,
             ts.SyntaxKind.EqualsGreaterThanToken,
-            sourceFile,
+            sourceFile
         );
         // condition so we don't crash if the arrow is somehow missing
         if (equalsGreaterThanToken === undefined) {
@@ -379,7 +379,7 @@ function walk(ctx: Lint.WalkContext<Options>) {
 
     function addMissingWhitespaceErrorAt(position: number): void {
         // TODO: this rule occasionally adds duplicate failures.
-        if (ctx.failures.some((f) => f.getStartPosition().getPosition() === position)) {
+        if (ctx.failures.some(f => f.getStartPosition().getPosition() === position)) {
             return;
         }
         const fix = Lint.Replacement.appendText(position, " ");

@@ -1,14 +1,14 @@
 ---
 layout: post
-title:  "Sharable Configurations and Rules"
-date:   2016-03-31 15:19:00
+title: "Sharable Configurations and Rules"
+date: 2016-03-31 15:19:00
 ---
 
 With the release of [TSLint v3.7.0][0] comes a few new features that will make configuration files (aka [`tslint.json` files][1])
-easier to maintain and share. The crux of the changes is a new `extends` field,  which when provided indicates that a configuration
+easier to maintain and share. The crux of the changes is a new `extends` field, which when provided indicates that a configuration
 file augments another configuration file.
 
-### Example ###
+### Example
 
 Let's imagine you've created some custom rules and want to share them with others.
 You also have a couple of configurations for them you want to share.
@@ -63,7 +63,7 @@ each time you run TSLint. Notice how this is a `.js` file that exports an object
 module.exports = {
     extends: "./tslint-base.json",
     rules: {
-        "no-excessive-commenting": [true, {maxComments: Math.random() * 10}]
+        "no-excessive-commenting": [true, { maxComments: Math.random() * 10 }]
     }
 };
 ```
@@ -74,15 +74,15 @@ Finally, we have our `package.json` file which references our base config file t
 
 ```json
 {
-  "name": "shared-tslint-rules",
-  "version": "1.0.0",
-  "description": "Some TSLint rules that are great!",
-  "main": "tslint-base.json",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "MIT"
+    "name": "shared-tslint-rules",
+    "version": "1.0.0",
+    "description": "Some TSLint rules that are great!",
+    "main": "tslint-base.json",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "MIT"
 }
 ```
 
@@ -116,4 +116,5 @@ tslint -c path/to/tslint.json my/files/**/to/lint.ts
 ```
 
 [0]: https://github.com/palantir/tslint/releases
+
 [1]: {{ site.baseurl }}/usage/tslint-json

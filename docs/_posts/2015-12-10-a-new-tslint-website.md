@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "A New TSLint Website"
-date:   2015-12-10 20:15:21
+title: "A New TSLint Website"
+date: 2015-12-10 20:15:21
 ---
 
 As TSLint has grown in usage and popularity alongside of TypeScript, it also has
@@ -16,11 +16,11 @@ There's also a short description of the rule's options, but the syntax for speci
 
 This website, in its current, very simple form, marks the beginning of a renewed focus on developer and user experience. But it's just the tip of the iceberg in changes to come - other things in progress include:
 
-* [A documentation overhaul][4] that will provide
-more comprehensive and clear documentation on TSLint and will make it easier to navigate that documentation.
-* [A new `--init` feature][5] in the TSLint CLI that will make it easier to
-generate a sensible initial `tslint.json` config file.
-* [An improved contributor experience][6] that will make things easier for those who want to contribute code to TSLint.
+-   [A documentation overhaul][4] that will provide
+    more comprehensive and clear documentation on TSLint and will make it easier to navigate that documentation.
+-   [A new `--init` feature][5] in the TSLint CLI that will make it easier to
+    generate a sensible initial `tslint.json` config file.
+-   [An improved contributor experience][6] that will make things easier for those who want to contribute code to TSLint.
 
 Feedback is always great, so please comment on any of the above GitHub issues and let us know what you would like to see to make TSLint user experience even better!
 

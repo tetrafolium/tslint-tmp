@@ -6,14 +6,14 @@ permalink: "/develop/custom-rules/"
 
 TSLint ships with a set of core rules that can be configured. However, users are also allowed to write their own rules, which allows them to enforce specific behavior not covered by the core of TSLint. TSLint's internal rules are itself written to be pluggable, so adding a new rule is as simple as creating a new rule file named by convention. New rules can be written in either TypeScript or JavaScript; if written in TypeScript, the code must be compiled to JavaScript before invoking TSLint.
 
-Let us take the example of how to write a new rule to forbid all import statements (you know, *for science*). Let us name the rule file `noImportsRule.ts`. Rules are referenced in `tslint.json` with their kebab-cased identifer, so `"no-imports": true` would configure the rule.
+Let us take the example of how to write a new rule to forbid all import statements (you know, _for science_). Let us name the rule file `noImportsRule.ts`. Rules are referenced in `tslint.json` with their kebab-cased identifer, so `"no-imports": true` would configure the rule.
 
-__Important conventions__:
+**Important conventions**:
 
-- Rule identifiers are always kebab-cased.
-- Rule files are always camel-cased (`camelCasedRule.ts`).
-- Rule files *must* contain the suffix `Rule`.
-- The exported class must always be named `Rule` and extend from `Lint.Rules.AbstractRule`.
+-   Rule identifiers are always kebab-cased.
+-   Rule files are always camel-cased (`camelCasedRule.ts`).
+-   Rule files _must_ contain the suffix `Rule`.
+-   The exported class must always be named `Rule` and extend from `Lint.Rules.AbstractRule`.
 
 Now, let us first write the rule in TypeScript:
 
@@ -41,7 +41,7 @@ class NoImportsWalker extends Lint.RuleWalker {
 }
 ```
 
-Given a walker, TypeScript's parser visits the AST using the visitor pattern. So the rule walkers only need to override the appropriate visitor methods to enforce its checks. For reference, the base walker can be found in [syntaxWalker.ts](https://github.com/palantir/tslint/blob/master/src/language/walker/syntaxWalker.ts). To see what your Typescript file or snippet looks like as an AST, visit [astexplorer.net](http://astexplorer.net/) (__note__: current version of TypeScript may not be supported, yet).
+Given a walker, TypeScript's parser visits the AST using the visitor pattern. So the rule walkers only need to override the appropriate visitor methods to enforce its checks. For reference, the base walker can be found in [syntaxWalker.ts](https://github.com/palantir/tslint/blob/master/src/language/walker/syntaxWalker.ts). To see what your Typescript file or snippet looks like as an AST, visit [astexplorer.net](http://astexplorer.net/) (**note**: current version of TypeScript may not be supported, yet).
 
 We still need to hook up this new rule to TSLint. First make sure to compile `noImportsRule.ts`:
 
@@ -55,7 +55,7 @@ Finally, add a line to your [`tslint.json` config file][0] for each of your cust
 
 ---
 
-Now that you're written a rule to detect problems, let's modify it to *fix* them.
+Now that you're written a rule to detect problems, let's modify it to _fix_ them.
 
 Instantiate a `Fix` object and pass it in as an argument to `addFailure`. This snippet replaces the offending import statement with an empty string:
 
@@ -66,12 +66,14 @@ const fix = new Lint.Replacement(node.getStart(), node.getWidth(), "");
 // create a failure at the current position
 this.addFailure(this.createFailure(node.getStart(), node.getWidth(), Rule.FAILURE_STRING, fix));
 ```
+
 ---
+
 Final notes:
 
-- Core rules cannot be overwritten with a custom implementation.
-- Custom rules can also take in options just like core rules (retrieved via `this.getOptions()`).
-- As of TSLint v5.7.0 you no longer need to compile your custom rules before using them. You need to tell node.js how to load `.ts` files for example by using `ts-node`:
+-   Core rules cannot be overwritten with a custom implementation.
+-   Custom rules can also take in options just like core rules (retrieved via `this.getOptions()`).
+-   As of TSLint v5.7.0 you no longer need to compile your custom rules before using them. You need to tell node.js how to load `.ts` files for example by using `ts-node`:
 
 ```sh
 ts-node node_modules/.bin/tslint <your options>

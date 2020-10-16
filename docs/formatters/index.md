@@ -12,5 +12,6 @@ Lint _formatters_ allow for transformation of lint results into various forms be
 
 {% assign formatters = site.data.formatters | sort: "name" %}
 {% for formatter in formatters %}
-* [{{formatter.formatterName}}]({{formatter.formatterName}}) - {{formatter.description | markdownify | remove:"<p>" | remove: "</p>"}}
-{% endfor %}
+
+-   [{{formatter.formatterName}}]({{formatter.formatterName}}) - {{formatter.description | markdownify | remove:"<p>" | remove: "</p>"}}
+    {% endfor %}

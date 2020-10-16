@@ -16,6 +16,7 @@ yarn test
 #### Running a specific test
 
 You can test a specific test by using the `--test` command line parameter followed by your test directory. For example:
+
 ```
 // global tslint
 // point to a dir that has tslint.json and .lint files
@@ -31,7 +32,7 @@ Configuration files to work with Visual Studio Code are included when you check 
 
 The current debug configurations are:
 
-- Debug CLI: Used to debug TSLint using command line arguments. Modify the `args` array in `.vscode/launch.json` to add arguments.
-- Debug Mocha Tests: Runs non-rule tests
-- Debug Rule Tests: Runs rule tests (under `test/rules`)
-- Debug Document Generation: Debug the `scripts/buildDocs.ts` script.
+-   Debug CLI: Used to debug TSLint using command line arguments. Modify the `args` array in `.vscode/launch.json` to add arguments.
+-   Debug Mocha Tests: Runs non-rule tests
+-   Debug Rule Tests: Runs rule tests (under `test/rules`)
+-   Debug Document Generation: Debug the `scripts/buildDocs.ts` script.

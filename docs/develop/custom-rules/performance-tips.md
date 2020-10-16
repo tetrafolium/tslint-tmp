@@ -13,7 +13,7 @@ cut in half).
 The TypeChecker is a really mighty tool, but that comes with a cost. To create a TypeChecker the Program first has to locate, read, parse and bind all SourceFiles referenced.
 To avoid that cost, try to avoid the TypeChecker where possible.
 
-If you are interested in the JSDoc of a function for example, you *could* ask the TypeChecker.
+If you are interested in the JSDoc of a function for example, you _could_ ask the TypeChecker.
 But there's another way: call `.getChildren()` on the FunctionDeclaration and search for nodes of kind `ts.SyntaxKind.JSDocComment`.
 Those nodes will precede other nodes in the array.
 
@@ -51,32 +51,33 @@ class MyWalker extends Lint.AbstractWalker<MyOptionsType> {
 
 ### Don't walk the whole AST if possible
 
-__The language specification is your friend__:
+**The language specification is your friend**:
 The language spec defines where each statement can occur.
 For example, if you are interested in `import` statements, you only need to search in `sourceFile.statements` and nested `NamespaceDeclaration`s.
 
-__Don't visit AST branches you're not interested in__:
+**Don't visit AST branches you're not interested in**:
 For example, `no-null-keyword` creates no failure if the null keyword is part of another type.
 There are two ways to achieve this:
 
-* Recurse into the AST until you find a token of kind NullKeyword and then walk up its parent chain to find out if it is part of a type node.
-* Stop recursing deeper into that branch as soon as you hit a type node (preferred).
+-   Recurse into the AST until you find a token of kind NullKeyword and then walk up its parent chain to find out if it is part of a type node.
+-   Stop recursing deeper into that branch as soon as you hit a type node (preferred).
 
 ### Avoid frequently creating one-time closures in the hot path
+
 ```ts
 class SomeClass {
     // this is a simplified version of what SyntaxWalker does under the hood
     doStuff(node: ts.Node) {
         // do stuff ...
 
-        ts.forEachChild(node, (n) => this.doStuff(n));
-                           // ~~~~~~~~~~~~~~~~~~~~~~ [a new closure is created for EVERY node in the AST and remains on the call stack
-                           //                         until processing of all children is done]
+        ts.forEachChild(node, n => this.doStuff(n));
+        // ~~~~~~~~~~~~~~~~~~~~~~ [a new closure is created for EVERY node in the AST and remains on the call stack
+        //                         until processing of all children is done]
     }
 }
 ```
 
-Instead use the same closure for every call like the example above in __Implement your own walking algorithm__.
+Instead use the same closure for every call like the example above in **Implement your own walking algorithm**.
 
 ### Create small specialized functions / methods
 
@@ -90,17 +91,17 @@ amount of different hidden classes. Above that threshold the function will be de
 ### Supply the optional sourceFile parameter
 
 There are serveral methods that have an optional parameter `sourceFile`. Don't omit this parameter if you care for performance.
-If ommitted, typescript needs to walk up the node's parent chain until it reaches the SourceFile. This *can* be quite costly when done
+If ommitted, typescript needs to walk up the node's parent chain until it reaches the SourceFile. This _can_ be quite costly when done
 frequently on deeply nested nodes.
 
 Some examples:
 
-* `node.getStart()`
-* `node.getWidth()`
-* `node.getText()`
-* `node.getChildren()`
-* `node.getFirstToken()`
-* `node.getLeadingTriviaWidth()`
+-   `node.getStart()`
+-   `node.getWidth()`
+-   `node.getText()`
+-   `node.getChildren()`
+-   `node.getFirstToken()`
+-   `node.getLeadingTriviaWidth()`
 
 ### Avoid excessive calls to node.getStart(), node.getWidth() and node.getText()
 
@@ -117,7 +118,7 @@ declare node: ts.Identifier;
 node.getText() === node.text; // prefer node.text where available
 ```
 
-__Bonus points:__ If you know the width of the node (either from the `text` property or because it is a keyword of known width),
+**Bonus points:** If you know the width of the node (either from the `text` property or because it is a keyword of known width),
 you can use `node.getEnd() - width` to calculate the node's start.
 `node.getEnd()` is effectively for free as it only returns the `end` property. This way you avoid the cost of skipping leading trivia.
 
@@ -130,16 +131,13 @@ With proper tail calls the browser reuses the stack frame of the current functio
 
 ```ts
 function foo() {
-    if (condition)
-        return bar(); // tail call
-    if (someOtherCondition)
-        return foo() + 1; // no tail call, return value is modified
+    if (condition) return bar(); // tail call
+    if (someOtherCondition) return foo() + 1; // no tail call, return value is modified
     return baz(); // tail call
 }
 
 function bas() {
-    if (cond)
-        return someGlobalVariable = bar(); // no tail call, return value is stored in value before it is returned
+    if (cond) return (someGlobalVariable = bar()); // no tail call, return value is stored in value before it is returned
     foo(); // no tail call because there is no return
 }
 ```

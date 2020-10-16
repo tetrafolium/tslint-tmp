@@ -44,7 +44,7 @@ const result = linter.getResult();
 
 #### JavaScript (ES5)
 
-This code will run directly under Node.js, including if it's called from the command line.  
+This code will run directly under Node.js, including if it's called from the command line.
 
 ```js
 "use strict";
