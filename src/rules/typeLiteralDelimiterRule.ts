@@ -78,7 +78,7 @@ function walk(ctx: Lint.WalkContext<Options>): void {
     function check(node: ts.TypeLiteralNode): void {
         node.members.forEach((member, idx) => {
             const end = member.end - 1;
-            // Check if delimiter should be ommitted for a single-line type literal.
+            // Check if delimiter should be omitted for a single-line type literal.
             const shouldOmit =
                 options.singleLine === "always"
                     ? false

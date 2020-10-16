@@ -91,7 +91,7 @@ const skyscraper = 100;
 ```
 
 We've now used a special message shorthand syntax so we don't have to type out the same failure message over and over.
-Instead of writing out the full lint failure message after each occurance of it, we instead just specify a shortcut name.
+Instead of writing out the full lint failure message after each occurrence of it, we instead just specify a shortcut name.
 (Shortcut names can only consist of letters, numbers, underscores, and hyphens.)
 Then, at the bottom of our test file, we specify what full message each shortcut should expand to.
 

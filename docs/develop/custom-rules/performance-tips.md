@@ -91,7 +91,7 @@ amount of different hidden classes. Above that threshold the function will be de
 ### Supply the optional sourceFile parameter
 
 There are serveral methods that have an optional parameter `sourceFile`. Don't omit this parameter if you care for performance.
-If ommitted, typescript needs to walk up the node's parent chain until it reaches the SourceFile. This _can_ be quite costly when done
+If omitted, typescript needs to walk up the node's parent chain until it reaches the SourceFile. This _can_ be quite costly when done
 frequently on deeply nested nodes.
 
 Some examples:

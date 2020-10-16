@@ -322,7 +322,7 @@ export type FilterCallback = (node: ts.Node) => boolean;
  * @description JsDoc comments are treated like regular comments and only visited if `skipTrivia` === false.
  *
  * @param node The node whose tokens should be visited
- * @param skipTrivia If set to false all trivia preceeding `node` or any of its children is included
+ * @param skipTrivia If set to false all trivia preceding `node` or any of its children is included
  * @param cb Is called for every token of `node`. It gets the full text of the SourceFile and the position of the token within that text.
  * @param filter If provided, will be called for every Node and Token found. If it returns false `cb` will not be called for this subtree.
  *
@@ -429,7 +429,7 @@ export function forEachComment(node: ts.Node, cb: ForEachCommentCallback) {
        Comment ranges between tokens are parsed without the need of a scanner.
        forEachToken also does intentionally not pay attention to the correct comment ownership of nodes as it always
        scans all trivia before each token, which could include trailing comments of the previous token.
-       Comment onwership is done right in this function*/
+       Comment ownership is done right in this function*/
     return forEachToken(node, true, (fullText, tokenKind, pos, parent) => {
         // tslint:disable-line:deprecation
         // don't search for comments inside JsxText

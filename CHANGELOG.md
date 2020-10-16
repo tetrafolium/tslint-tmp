@@ -158,7 +158,7 @@ For more details, see the relevant PRs:
 -   [bugfix][`object-literal-sort-keys`](https://palantir.github.io/tslint/rules/object-literal-sort-keys/) fixed regression that effectively disabled the rule with `\r\n` line breaks (#3427)
 -   [bugfix][`curly`](https://palantir.github.io/tslint/rules/curly/) fixer now correctly handles comments (#3473)
 -   [bugfix][`no-unsafe-any`](https://palantir.github.io/tslint/rules/no-unsafe-any/) fixed false-positive with namespaced types (#3487)
--   [bugfix] Removed potentailly dangerous fixer for [`no-any`](https://palantir.github.io/tslint/rules/no-any/) (#3486)
+-   [bugfix] Removed potentially dangerous fixer for [`no-any`](https://palantir.github.io/tslint/rules/no-any/) (#3486)
 -   [bugfix][`no-unnecessary-type-assertion`](https://palantir.github.io/tslint/rules/no-unnecessary-type-assertion/) fixed false negatives for types with numeric keys (#3468)
 -   [bugfix][`callable-types`](https://palantir.github.io/tslint/rules/callable-types/) adds parentheses when fixing a type literal inside an array type (#3440)
 -   [bugfix][`no-unsafe-any`](https://palantir.github.io/tslint/rules/no-unsafe-any/) allows spreading an `any` value into an object (#3439)
@@ -519,7 +519,7 @@ Thanks to our contributors!
 -   [bugfix] don't crash `tslint --project` if `allowJs` is set in tsconfig.json (#2823)
 -   [bugfix][`align`](https://palantir.github.io/tslint/rules/align/) with option `"members"`: check members of class expressions; don't check semicolons in classes (#2668)
 -   [bugfix][`no-inferred-empty-object-type`](https://palantir.github.io/tslint/rules/no-inferred-empty-object-type/): fix stack overflow (#2762)
--   [bugfix][`semicolon`](https://palantir.github.io/tslint/rules/semicolon/): don't warn about unnecesary semicolon when it is actually needed, e.g. when followed by type assertion or template string (#2655)
+-   [bugfix][`semicolon`](https://palantir.github.io/tslint/rules/semicolon/): don't warn about unnecessary semicolon when it is actually needed, e.g. when followed by type assertion or template string (#2655)
 -   [bugfix][`space-before-function-paren`](https://palantir.github.io/tslint/rules/space-before-function-paren/): Ignore async arrow function with no parentheses (#2833)
 -   [bugfix]: [`no-unsafe-any`](https://palantir.github.io/tslint/rules/no-unsafe-any/): Don't fail on `continue label;` (#2830)
 -   [bugfix][`no-unbound-method`](https://palantir.github.io/tslint/rules/no-unbound-method/): Allow unbound method to be used as a condition (#2834)
@@ -1405,7 +1405,7 @@ Thanks to our contributors!
 -   [bugfix] `use-isnan` allows assaignments to `NaN` (#1054)
 -   [bugfix] `no-unreachable` handles allows hoisted type aliases (#564)
 -   [bugfix] `member-ordering` rule now checks constructors (#1158)
--   [bugfix] `--test` CLI command works correctly with specifiying custom rules (#1195)
+-   [bugfix] `--test` CLI command works correctly with specifying custom rules (#1195)
 
 Thanks to our contributors!
 
@@ -1538,7 +1538,7 @@ Thanks to our contributors!
 ## v3.5.0-dev.1
 
 -   [new-rule-option] "ignore-pattern" option for `no-unused-variable` rule (#314)
--   [bugfix] Fix occassional crash in `no-string-literal` rule (#906)
+-   [bugfix] Fix occasional crash in `no-string-literal` rule (#906)
 -   [enhancement] Tweak behavior of `member-ordering` rule with regards to arrow function types in interfaces (#226)
 
 Thanks to our contributors!
@@ -1572,7 +1572,7 @@ Thanks to our contributors!
 
 -   [enhancement] Revamped testing system (#620)
     -   Writing tests for rules is now much simpler with a linter DSL.
-        See exisitng tests in `test/rules/**/*.ts.lint` for examples.
+        See existing tests in `test/rules/**/*.ts.lint` for examples.
 -   [enhancement] New msbuild formatter (#947)
 -   [bugfix] Fix handling of multiline literals in `trailing-comma` rule (#856)
 -   [bugfix] `one-line` rule correctly checks space between `catch` and opening brace (#925)

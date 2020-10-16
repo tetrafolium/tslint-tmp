@@ -88,7 +88,7 @@ export class Formatter extends AbstractFormatter {
                 }
             );
 
-            // Ouput
+            // Output
             outputLines.push(`${failureString} ${ruleName}`);
             outputLines.push(frame);
             outputLines.push("");
