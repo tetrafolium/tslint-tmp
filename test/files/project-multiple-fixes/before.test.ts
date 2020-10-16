@@ -5,7 +5,7 @@ const DefaultOptions = {
     new winston.transports.Console({
         json: true,
         colorize: true,
-        stringify: true
+        stringify: true,
     })],
     rewriters: [
         (level, message, meta) => {
@@ -14,9 +14,8 @@ const DefaultOptions = {
                 meta.timeStamp = new Date();
             }
             return meta;
-        }
-    ]
-
+        },
+    ],
 
 };
 

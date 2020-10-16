@@ -1,6 +1,6 @@
-module FilesListModule {
+namespace FilesListModule {
     export class FilesListClass {
-        name: string;
+        public name: string;
 
         constructor(name: string) {
             this.name = name;

@@ -1,6 +1,6 @@
-var x = 123;
-var y = "abcd";
-var z = {
-  x: x,
-  y: y
+let x = 123;
+let y = "abcd";
+let z = {
+  x,
+  y,
 };

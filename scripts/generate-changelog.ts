@@ -23,8 +23,8 @@
 
 // tslint:disable:no-console
 
-import GitHubApi = require("github");
 import * as fs from "fs";
+import GitHubApi = require("github");
 import * as os from "os";
 import * as path from "path";
 
@@ -116,9 +116,8 @@ github.repos.getLatestRelease(repoInfo).then((value) => {
         }
         contributors.add(commit.submitter);
     }
-    entries.sort((a, b) => {
-        return a.tag.localeCompare(b.tag);
-    });
+    entries.sort((a, b) =>
+        a.tag.localeCompare(b.tag));
 
     console.log("\n---- formatted changelog entries: ----");
     for (const entry of entries) {

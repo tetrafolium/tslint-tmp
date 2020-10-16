@@ -30,7 +30,7 @@ export class Rule extends Lint.Rules.AbstractRule {
         options: null,
         optionExamples: [true],
         type: "style",
-        typescriptOnly: false
+        typescriptOnly: false,
     };
     /* tslint:enable:object-literal-sort-keys */
 
@@ -46,10 +46,10 @@ export class Rule extends Lint.Rules.AbstractRule {
         }
         if (type !== undefined && isFunctionTypeNode(type) && type.type !== undefined) {
             if (type.typeParameters !== undefined) {
-                const tps = type.typeParameters.map(tp => tp.getText()).join(", ");
+                const tps = type.typeParameters.map((tp) => tp.getText()).join(", ");
                 result += `<${tps}>`;
             }
-            const args = type.parameters.map(v => v.getText()).join(", ");
+            const args = type.parameters.map((v) => v.getText()).join(", ");
             result += `(${args}): ${type.type.getText()};`;
         }
 
@@ -71,7 +71,7 @@ function walk(ctx: Lint.WalkContext<void>): void {
                     Rule.FAILURE_STRING,
                     type.type === undefined
                         ? undefined
-                        : [Lint.Replacement.replaceNode(node, Rule.METH_SIGN_STRING(node))]
+                        : [Lint.Replacement.replaceNode(node, Rule.METH_SIGN_STRING(node))],
                 );
             }
         }
